@@ -51,8 +51,8 @@ end
 mb, tfast, tslow = run()
 ratio = tslow ./ tfast
 
-# L2 cache size on this machine, in MB
-L2 = 4.0
+# L2 cache of the performance cores (Apple M4 Pro), in MB
+L2 = 16.0
 
 cyan  = RGB(0.13, 0.83, 0.93)
 amber = RGB(0.96, 0.62, 0.04)
@@ -73,7 +73,7 @@ p1 = plot(mb, tfast; style...,
 plot!(p1, mb, tslow; label = "row-major (inner j)",
     color = amber, lw = 3, marker = :circle, ms = 5, msw = 0)
 vline!(p1, [L2]; color = ink, ls = :dash, lw = 1, alpha = 0.4, label = "")
-annotate!(p1, L2, maximum(tslow) * 0.6, text("L2 = 4 MB", 8, ink, :left, :top, rotation = 90))
+annotate!(p1, L2, maximum(tslow) * 0.6, text("L2 = 16 MB", 8, ink, :left, :top, rotation = 90))
 
 p2 = plot(mb, ratio; style...,
     color = cyan, lw = 3, marker = :circle, ms = 5, msw = 0,
