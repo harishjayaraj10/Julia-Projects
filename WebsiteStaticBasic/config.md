@@ -1,0 +1,2 @@
+@def CodeynamicsSite = "codeynamics.com"
+
