@@ -1,15 +1,90 @@
+/* ---------- Colours ---------- */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5f6368;
+  --accent: #00adad;
+  --nav-bg: #000000;
+  --nav-text: #e6e6e6;
+  --border: #e5e5e5;
+  --content-width: 800px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111315;
+    --text: #e8e8e8;
+    --muted: #a0a4a8;
+    --border: #2a2d30;
+  }
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
 html {
-  font-family: sans-serif;;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 17px;
-  color: #000000;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ---------- Nav ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  padding: 0.9rem 1rem;
+  background: var(--nav-bg);
+}
+
+.navbar a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Content ---------- */
+.franklin-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.franklin-content h2 {
+  margin-top: 3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--border);
+  /* keep headings visible below the sticky nav when jumping to #anchors */
+  scroll-margin-top: 4.5rem;
+}
+
+.franklin-content h2:first-child {
+  margin-top: 0;
 }
 
 .header-anchor {
   color: inherit;
   text-decoration: none;
-}
-
-.navbar {
-  display: flex;
-  gap: 1.5rem;
 }
